@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.example.myapplication.model.modelTest.Item" />
+        <variable
+            name="viewModel"
+            type="com.example.myapplication.viewModel.ArticleViewModel" />
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:background="@color/background">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".view.fragment.ArticleFragment"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/share_rounded_corner_with_border"
+                android:layout_margin="8dp">
+
+                <TextView
+                    android:id="@+id/txt_view_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{item.title}"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:padding="5dp"
+                    android:textColor="@android:color/black"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:id="@+id/img_view_article"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/txt_view_desc"
+                    app:layout_constraintTop_toBottomOf="@id/txt_view_title"
+                    android:background="@drawable/share_rounded_corner_with_border"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/ic_dentist" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txt_view_date"
+                    android:text="@{item.createdAt}"
+                    app:layout_constraintStart_toEndOf="@id/img_view_calender"
+                    app:layout_constraintTop_toBottomOf="@id/img_view_article"
+                    android:textSize="10sp"
+                    android:padding="1dp"
+                    android:textColor="@android:color/black" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    app:layout_constraintStart_toStartOf="@id/img_view_article"
+                    app:layout_constraintEnd_toStartOf="@id/txt_view_date"
+                    android:layout_marginLeft="3dp"
+                    android:padding="1dp"
+                    android:src="@drawable/ic_calender"
+                    app:layout_constraintTop_toBottomOf="@id/img_view_article"
+                    android:id="@+id/img_view_calender" />
+
+
+                <TextView
+                    android:id="@+id/txt_view_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:padding="10dp"
+                    android:textColor="@android:color/black"
+                    android:textDirection="rtl"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toTopOf="@id/barrier"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/img_view_calender" />
+
+                <androidx.constraintlayout.widget.Barrier
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/barrier"
+                    app:barrierDirection="bottom"
+                    app:constraint_referenced_ids="txt_view_desc"
+                    app:layout_constraintTop_toBottomOf="@id/txt_view_desc"
+                    android:layout_margin="5dp" />
+
+                <TextView
+                    android:id="@+id/txt_view_share"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/paytone_one"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="اشتراک گذاری در شبکه های اجتماعی"
+                    android:textColor="@color/textBackground"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/barrier" />
+
+                <ImageButton
+                    android:id="@+id/facebook"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:paddingBottom="10dp"
+                    android:src="@drawable/ic_facebook_color"
+                    app:layout_constraintEnd_toStartOf="@id/twitter"
+                    app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt_view_share" />
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/twitter"
+                    android:paddingBottom="10dp"
+                    app:layout_constraintStart_toEndOf="@id/facebook"
+                    app:layout_constraintTop_toBottomOf="@id/txt_view_share"
+                    android:src="@drawable/ic_twitter_color"
+                    app:layout_constraintEnd_toStartOf="@id/telegram"
+                    android:background="@color/white" />
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/telegram"
+                    app:layout_constraintStart_toEndOf="@id/twitter"
+                    app:layout_constraintTop_toBottomOf="@id/txt_view_share"
+                    android:src="@drawable/ic_telegram_color"
+                    app:layout_constraintEnd_toStartOf="@id/whatsApp"
+                    android:background="@color/white"
+                    android:paddingBottom="10dp" />
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/whatsApp"
+                    app:layout_constraintStart_toEndOf="@id/telegram"
+                    app:layout_constraintTop_toBottomOf="@id/txt_view_share"
+                    android:src="@drawable/ic_whats_app_color"
+                    app:layout_constraintEnd_toStartOf="@id/instagram"
+                    android:background="@color/white"
+                    android:paddingBottom="10dp" />
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/instagram"
+                    app:layout_constraintStart_toEndOf="@id/whatsApp"
+                    app:layout_constraintTop_toBottomOf="@id/txt_view_share"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:src="@drawable/ic_instagram_color"
+                    android:background="@color/white"
+                    android:paddingBottom="10dp" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/share_rounded_corner_with_border"
+                android:layout_gravity="right"
+                android:padding="10dp"
+                android:layout_margin="5dp">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/back_btn"
+                    android:src="@drawable/ic_back_arrow"
+                    android:background="@color/white"
+                    android:layout_marginLeft="12dp"
+                    android:onClick="@{() -> viewModel.onCommentClicked(item.id)}"/>
+
+                <TextView
+                    android:id="@+id/txt_view_users"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:paddingRight="15dp"
+                    android:text="نظرات کاربران"
+                    android:textColor="@android:color/black"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="مقالات مرتبط"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view_Article"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp" />
+
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".view.fragment.EducationFragment"
+        android:background="@color/background"
+        android:gravity="right">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_view_education"
+            android:text="@string/txt_education"
+            android:gravity="center"
+            android:textColor="@color/textBackground"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:padding="15dp" />
+
+        <SearchView
+            android:id="@+id/search_education"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/share_rounded_corner_with_border"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:queryHint="مقاله مورد نظر خود را جستجو کنید"
+            android:iconifiedByDefault="false"
+            android:layout_alignParentTop="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_categories"
+            android:background="@drawable/rounded_corner"
+            android:text="دسته بندی"
+            android:textColor="@color/textBackground"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingLeft="50dp"
+            android:paddingRight="30dp"
+            android:layout_marginRight="10dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/recycler_view_education"
+            android:layout_margin="8dp" />
+
+
+    </LinearLayout>
+</layout>

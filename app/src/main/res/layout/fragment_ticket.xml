@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".view.fragment.TicketFragment"
+    android:background="@drawable/dialog_rounded_corner">
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:id="@+id/linear_layout_ticket"
+       android:orientation="horizontal"
+       android:layoutDirection="rtl"
+       android:padding="10dp">
+       <ImageView
+           android:id="@+id/img_view_cancel_ticket"
+           android:layout_gravity="center"
+           android:layout_width="20dp"
+           android:layout_height="20dp"
+           android:layout_marginRight="15dp"
+           android:src="@drawable/ic_close_black"/>
+       <ImageView
+           android:layout_width="40dp"
+           android:layout_marginRight="100dp"
+           android:layout_height="40dp"
+           android:layout_gravity="center"
+           android:padding="8dp"
+           android:src="@drawable/ic_share_black"
+          />
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="تیکت"
+           android:textStyle="bold"
+           android:padding="5dp"
+           android:textSize="24sp"
+           android:layout_gravity="center"
+           android:layout_marginRight="5dp"
+           android:background="@color/white"
+           android:textColor="@color/black"
+           />
+   </LinearLayout>
+
+    <View
+        android:id="@+id/divider_ticket"
+        android:layout_width="match_parent"
+        android:layout_height="0.10dp"
+        android:background="@color/lineColor" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="تمامی تیکت هایی که برای پشتیبانی ارسال کرده اید، در این صفحه لیست شده اند:"
+        android:textColor="@color/textColorSecond"
+        android:padding="5dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/recycler_view_ticket"
+        android:layout_margin="5dp"/>
+
+        
+
+
+</LinearLayout>
